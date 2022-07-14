@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, HttpCode } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { v4 } from 'uuid';
 import { InMemoryStore } from 'src/db/in-memory.db';
 import { Artist } from './entities/artists.entity';
@@ -27,7 +27,7 @@ export class ArtistsService {
     const newArtist = new Artist();
     newArtist.id = v4();
     newArtist.name = name;
-    newArtist.grammy = grammy
+    newArtist.grammy = grammy;
     this.inMemoryStore.artists.push(newArtist);
     return newArtist;
 }
@@ -35,7 +35,6 @@ export class ArtistsService {
 
  remove(id: string): any {
   const artist: Artist = this.inMemoryStore.artists.find((item: Artist) => item.id === id);
-  console.log(artist)
   if (artist) {
     this.inMemoryStore.artists = this.inMemoryStore.artists.filter((item) => item.id !== id);
   } else {
