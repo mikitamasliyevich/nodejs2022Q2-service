@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { InMemoryStore } from 'src/db/in-memory.db';
-import { UsersController } from './controller/users.controller';
+import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 
 @Module({

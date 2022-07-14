@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ArtistModule } from './resources/artists/artist.module';
-import { UsersModule } from './resources/users/user.module';
+import { ArtistModule } from './routes/artists/artist.module';
+import { UsersModule } from './routes/users/user.module';
 
 
 @Module({
