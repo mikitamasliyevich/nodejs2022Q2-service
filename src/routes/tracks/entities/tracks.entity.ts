@@ -1,9 +1,10 @@
 import { IsUUID } from 'class-validator';
 
-export class Album  { 
+export class Track  { 
     @IsUUID()
     id: string;
     name: string;
-    year: number;
     artistId: string | null;
+    albumId: string | null;
+    duration: number;
   }
