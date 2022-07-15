@@ -1,14 +1,17 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Inject } from '@nestjs/common';
 import { v4 } from 'uuid';
 import { InMemoryStore } from 'src/db/in-memory.db';
 import { Artist } from './entities/artists.entity';
 import { CreateArtistDto } from './dto/createArtist.dto';
 import { UpdateArtistDto } from './dto/updateArtist.dto';
+import { TracksService } from '../tracks/tracks.service';
 
 @Injectable()
 export class ArtistsService {
   constructor(private inMemoryStore: InMemoryStore) {}
 
+  @Inject(TracksService)
+  private  tracksService: TracksService;
 
   findAll(): Artist[] {
     return this.inMemoryStore.artists;
@@ -34,6 +37,7 @@ export class ArtistsService {
 
 
  remove(id: string): void {
+  this.tracksService.removeArtist(id);
   const artist: Artist = this.inMemoryStore.artists.find((item: Artist) => item.id === id);
   if (artist) {
     this.inMemoryStore.artists = this.inMemoryStore.artists.filter((item) => item.id !== id);

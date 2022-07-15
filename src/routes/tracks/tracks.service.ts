@@ -53,5 +53,15 @@ update(id: string, updateTrackDto: UpdateTrackDto) {
       throw new NotFoundException(`There is no track with id: ${id}`);
     }
    }
+
+   async removeArtist(id: string): Promise<void> {
+    this.inMemoryStore.tracks = this.inMemoryStore.tracks.map((item) =>
+     item.artistId === id ? { ...item, artistId: null } : item);
+  }
+
+  async removeAlbum(id: string): Promise<void> {
+    this.inMemoryStore.tracks = this.inMemoryStore.tracks.map((item) =>
+    item.albumId === id ? { ...item, albumId: null } : item);
+  }
 }
 
