@@ -34,7 +34,7 @@ export class UsersService {
   }
 }
 
-remove(id: string): any {
+remove(id: string): void {
   const user: User = this.inMemoryStore.users.find((item: User) => item.id === id);
   if (user) {
     this.inMemoryStore.users = this.inMemoryStore.users.filter((item) => item.id !== id);

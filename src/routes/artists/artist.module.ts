@@ -6,6 +6,6 @@ import { ArtistsService } from './artists.service';
 @Module({
   controllers: [ArtistController],
   providers: [ArtistsService, InMemoryStore],
-  exports: [ArtistsService],
+  exports: [ArtistsService]
 })
 export class ArtistModule {}

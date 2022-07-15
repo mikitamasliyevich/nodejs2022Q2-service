@@ -17,7 +17,7 @@ export class ArtistsService {
   findOne(id: string): Artist {
   const artist:Artist = this.inMemoryStore.artists.find((item) => item.id === id);
   if (!artist) {
-    throw new NotFoundException('Artist is not found with this ID');
+    throw new NotFoundException(`There is no artist with id: ${id}`);
   } else {
     return artist;
   }
@@ -33,7 +33,7 @@ export class ArtistsService {
 }
 
 
- remove(id: string): any {
+ remove(id: string): void {
   const artist: Artist = this.inMemoryStore.artists.find((item: Artist) => item.id === id);
   if (artist) {
     this.inMemoryStore.artists = this.inMemoryStore.artists.filter((item) => item.id !== id);

@@ -95,7 +95,7 @@ describe('artist (e2e)', () => {
     it('should correctly create artist', async () => {
       const response = await unauthorizedRequest
         .post(artistsRoutes.create)
-        // .set(commonHeaders)
+        .set(commonHeaders)
         .send(createArtistDto);
 
       const { id, name, grammy } = response.body;
