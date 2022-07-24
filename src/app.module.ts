@@ -5,9 +5,18 @@ import { ArtistModule } from './routes/artists/artist.module';
 import { FavoriteModule } from './routes/favorites/favorite.module';
 import { TrackModule } from './routes/tracks/track.module';
 import { UsersModule } from './routes/users/user.module';
-
+import { TypeOrmModule } from '@nestjs/typeorm';
+import  configService  from './ormconfig';
 
 @Module({
-  imports: [ConfigModule.forRoot(), UsersModule, ArtistModule, AlbumModule, TrackModule, FavoriteModule],
+  imports: [
+    UsersModule, 
+    ArtistModule,
+    AlbumModule, 
+    TrackModule, 
+    FavoriteModule,
+    ConfigModule.forRoot({isGlobal: true, envFilePath: '../.env'}),
+    TypeOrmModule.forRoot(configService)
+  ],
 })
 export class AppModule {}

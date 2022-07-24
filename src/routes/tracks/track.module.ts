@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
-import { InMemoryStore } from 'src/db/in-memory.db';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Track } from './entities/tracks.entity';
 import { TrackController } from './tracks.controller';
 import { TracksService } from './tracks.service';
 
 
 @Module({
   controllers: [TrackController],
-  providers: [TracksService, InMemoryStore],
+  providers: [TracksService],
+  imports: [TypeOrmModule.forFeature([Track])],
   exports: [TracksService]
 })
 export class TrackModule {}

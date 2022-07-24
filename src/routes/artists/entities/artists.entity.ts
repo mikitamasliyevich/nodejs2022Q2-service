@@ -1,8 +1,14 @@
-import { IsUUID,  } from 'class-validator';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity('artist')
 export class Artist { 
-    @IsUUID()
+
+    @PrimaryGeneratedColumn('uuid')
     id: string;
+
+    @Column()
     name: string;
+    
+    @Column()
     grammy: boolean;
   }

@@ -1,9 +1,16 @@
-import { IsUUID } from 'class-validator';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity('album')
 export class Album  { 
-    @IsUUID()
-    id: string;
-    name: string;
-    year: number;
-    artistId: string | null;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  year: number;
+
+  @Column()
+  artistId: string | null;
   }
