@@ -13,8 +13,8 @@ export class ArtistsService {
   @Inject(TracksService)
   private  tracksService: TracksService;
 
-  findAll(): any {
-    return this.inMemoryStore.tracks;
+  findAll(): Artist[] {
+    return this.inMemoryStore.artists;
  }
 
   findOne(id: string): Artist {

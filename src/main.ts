@@ -25,9 +25,3 @@ async function bootstrap() {
   await app.listen(port);
 }
 bootstrap();
-
-//docker build -t (nameImage) ./
-// docker images - check what images you have
-// docker run --publish 4000:4000 my-postgresbh 
-// docker run -d -p 4000:4000 my-postgresbh   - настраивает контенер в параллельном може
-// docker-compose up -d - start my yaml file

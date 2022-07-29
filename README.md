@@ -5,7 +5,7 @@
 ```
 git clone https://github.com/mikitamasliyevich/nodejs2022Q2-service.git
 cd nodejs2022Q2-service
-git checkout develop
+git checkout docker
 ```
 
 ## Installing NPM modules
@@ -17,7 +17,7 @@ npm install
 ## Running application
 
 ```
-npm run start
+docker-compose up --build
 ```
 
 After starting the app on port (4000 as default) you can open
