@@ -163,7 +163,7 @@ paths:
                 description: JWT Token
         403:
           description: Incorrect login or password
-  auth/signup:
+  /auth/signup:
     post:
       tags:
         - Signup

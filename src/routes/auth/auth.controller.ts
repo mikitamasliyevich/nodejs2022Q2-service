@@ -5,7 +5,6 @@ import {
     Post,
   } from '@nestjs/common';
   import { AuthService } from './auth.service';
-  import * as bcrypt from 'bcrypt'
   import { InMemoryStore } from 'src/db/in-memory.db';
   import { CreateUserDto } from '../users/dto/createUser.dto';
   
@@ -17,7 +16,7 @@ import {
     ) { }
   
     @Post('signup')
-    @HttpCode(200)
+    @HttpCode(201)
     public async create(@Body() createUserDto: CreateUserDto) {
       return this.authService.signUp(createUserDto);
     }
@@ -28,11 +27,8 @@ import {
     public async login(@Body() createUserDto: CreateUserDto) {
       const users = this.inMemory.authUsers
       const finded = users.find(user => user.login === createUserDto.login)
-      if (finded) {
-        const match = await bcrypt.compare(createUserDto.password, finded.password);
-        if (match) {
-          return this.authService.login(createUserDto);
+        if (finded) {
+          return this.authService.login(finded);
         }
       }
     }
-  }

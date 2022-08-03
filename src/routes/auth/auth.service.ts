@@ -26,12 +26,12 @@ export class AuthService {
     process.env.BAERER_TOKEN = accessToken
     const finded = this.inMemoryStore.authUsers.find(user => user.login === obj.login)
 
-    const payload = {
-      login: finded.login,
-      userId: finded.id,
-      BAERER_TOKEN: process.env.BAERER_TOKEN,
-      TOKEN_EXPIRE_TIME: process.env.TOKEN_EXPIRE_TIME
-    }
-    return payload
-  }
+      const payload = {
+        login: finded.login,
+        userId: finded.id,
+        BAERER_TOKEN: process.env.BAERER_TOKEN,
+        TOKEN_EXPIRE_TIME: process.env.TOKEN_EXPIRE_TIME
+      }
+      return payload
+}
 }
