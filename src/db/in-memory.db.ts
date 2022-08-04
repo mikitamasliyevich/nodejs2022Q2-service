@@ -12,6 +12,8 @@ export class InMemoryStore {
       albums: [],
       tracks: [],
    };
+   authUsers = []
+   jwt = ''
    users: User[] = []
    artists: Artist[] = []
    albums: Album[] = []
